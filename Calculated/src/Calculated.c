@@ -12,7 +12,7 @@ int main(int argc , char *argv[] ) {
         puts("Enter the first number ");
         scanf("%f", &first);
         puts("Enter your operation  ");
-        scanf("%c", &operation);
+        scanf(" %c", &operation);
         k = first ;
         if (operation == '+')           // Addition
         {
@@ -60,7 +60,7 @@ int main(int argc , char *argv[] ) {
         }
         printf("%f" , result );          // Result
         puts("Repeat it? (enter \"y\" to continue)");
-        scanf("%c", &next_time);
+        scanf(" %c", &next_time);
     }
     return 0;
 }
