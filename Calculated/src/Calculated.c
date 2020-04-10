@@ -30,11 +30,10 @@ int main(int argc , char *argv[] )
                 switch(operation)                                  // Selecting an operation
                 {
                     case '+':                                          // Summation
-                    {   puts("Enter the second  number: ");            // Entering the second number
+                        puts("Enter the second  number: ");            // Entering the second number
                         scanf("%f", &second);
                         result = first + second ;
                         break;
-                    }
                     case '*':                                          // Multiplication
                         puts("Enter the second  number: ");            // Entering the second number
                         scanf("%f", &second);
@@ -68,15 +67,9 @@ int main(int argc , char *argv[] )
                         }
                         result = first;
                         break;
-                }
-
-                printf("%f\n" , result);                             // Outputting the result
-                puts("Enter \"y\" to repeat program)");            // Repeat the program
-                scanf(" %c", &next_time);
-                break;
-
-
-
+                    }
+                    printf("%f\n" , result);                             // Outputting the result
+                    break;
 
             case 'v':                                                 // Work with vectors
                 printf("Enter size of vectors: ");
@@ -122,7 +115,10 @@ int main(int argc , char *argv[] )
                         free(res);                                        //
                         break;
                 }
+                break;
         }
+        puts("Enter \"y\" to repeat program: ");            // Repeat the program
+        scanf(" %c", &next_time);
     }
     return 0;
 }
