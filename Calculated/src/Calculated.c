@@ -1,65 +1,68 @@
-
 #include <stdio.h>
 #include <stdlib.h>
-float first, second, result , k;
+
+float first, second, result , power;
 char operation, next_time;
-int main(int argc , char *argv[] ) {
+
+int main(int argc , char *argv[] )
+{
     setvbuf(stdout, NULL, _IONBF, 0);
     setvbuf(stderr, NULL, _IONBF, 0);
+
     next_time = 'y';
-    while (next_time == 'y')            // Repeat
+    while (next_time == 'y')                           // This allows us to use the program several times
     {
-        puts("Enter the first number ");
+        puts("Enter the first number: ");                  // Entering the first number
         scanf("%f", &first);
-        puts("Enter your operation  ");
+        puts("Enter your operation (+ * / - ^ !): ");      // Entering operation
         scanf(" %c", &operation);
-        k = first ;
-        if (operation == '+')           // Addition
+        power = first;                                     // This will help us with exponentiation and factorial
+
+        switch(operation)                                  // Selecting an operation
         {
-            puts("Enter the second  number ");
-            scanf("%f", &second);
-            result = first + second ;
-        }
-        else if (operation == '*')      // Multiplication
-        {
-            puts("Enter the second  number ");
-            scanf("%f", &second);
-            result = first * second ;
-        }
-        else if (operation == '/')      // Division
-        {
-            puts("Enter the second  number ");
-            scanf("%f", &second);
-            result = first / second ;
-        }
-        else if (operation == '-')      // Difference
-        {
-            puts("Enter the second  number ");
-            scanf("%f", &second);
-            result = first - second ;
-        }
-        else if (operation == '^')      // Power
-        {
-            puts("Enter the second  number ");
-            scanf("%f", &second);
-            while (second >1)
-            {
-                first = first * k;
-                second = second - 1;
+            case '+':                                          // Summation
+            {   puts("Enter the second  number: ");            // Entering the second number
+                scanf("%f", &second);
+                result = first + second ;
+                break;
             }
-            result = first ;
+            case '*':                                          // Multiplication
+                puts("Enter the second  number: ");            // Entering the second number
+                scanf("%f", &second);
+                result = first * second ;
+                break;
+            case '-':                                          // Subtraction
+                puts("Enter the second  number: ");            // Entering the second number
+                scanf("%f", &second);
+                result = first - second;
+                break;
+            case '/':                                          // Division
+                puts("Enter the second  number: ");            // Entering the second number
+                scanf("%f", &second);
+                result = first / second;
+                break;
+            case '^':                                          // Degree
+                puts("Enter the second  number: ");            // Entering the second number
+                scanf("%f", &second);
+                while (second >1)
+                {
+                    first = first * power;                         // Using variable power which we announced before selecting an operation
+                    second = second - 1;
+                }
+                result = first;
+                break;
+            case '!':                                          // Factorial
+                while (power > 1)
+                {
+                    power = power - 1;                             // Using variable power which we announced before selecting an operation
+                    first = first * power;
+                }
+                result = first;
+                break;
         }
-        else if (operation == '!')      // Factorial
-        {
-            while (k > 1 )
-            {
-                k = k - 1;
-                first = first *k ;
-            }
-            result = first;
-        }
-        printf("%f" , result );          // Result
-        puts("Repeat it? (enter \"y\" to continue)");
+
+        printf("%f" , result);                             // Outputting the result
+        puts("Enter \"y\" to repeat program)");            // Repeat the program
         scanf(" %c", &next_time);
     }
     return 0;
